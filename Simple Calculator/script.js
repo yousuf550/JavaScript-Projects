@@ -32,7 +32,7 @@ function mathOperation() {
         result = parseFloat(result) / parseFloat(dis2Num);
     } else if (lastOperation === "%") {
         result = parseFloat(result) % parseFloat(dis2Num);
-    } 
+    }
 }
 
 //Events
@@ -64,18 +64,18 @@ operationEl.forEach(operation => {
     })
 });
 
-equalEl.addEventListener("click", (e) =>{
+equalEl.addEventListener("click", (e) => {
     if (!dis1Num || !dis2Num) return;
     haveDot = false;
     mathOperation();
     clearVar()
-    display2El.innerText =result;
+    display2El.innerText = result;
     tempReslult1El.innerText = "";
     dis2Num = result;
     dis1Num = "";
 })
 
-clearEl.addEventListener("click", (e) =>{
+clearEl.addEventListener("click", (e) => {
     display1El.innerText = "0";
     display2El.innerText = "0";
     dis1Num = "";
@@ -89,8 +89,8 @@ clearLastEl.addEventListener("click", (e) => {
     dis2Num = "";
 })
 
-window.addEventListener("keydown", (e) =>{
-    if(
+window.addEventListener("keydown", (e) => {
+    if (
         e.key === "0" ||
         e.key === "1" ||
         e.key === "2" ||
@@ -101,40 +101,47 @@ window.addEventListener("keydown", (e) =>{
         e.key === "7" ||
         e.key === "8" ||
         e.key === "9" ||
-        e.key === "." 
-    ){
+        e.key === "."
+    ) {
         clickButtonE1(e.key);
-    }else if (
-        
+    } else if (
         e.key === "+" ||
         e.key === "-" ||
         e.key === "/" ||
         e.key === "%"
-    ){
+    ) {
         clickOperation(e.key);
-    }else if (e.key === "*" ) {
+    } else if (e.key === "*") {
         clickOperation("X");
-    }else if (e.key === "Enter" || e.key === "="){
-        clickEqual()
-    }
+    } else if (e.key === "Enter" || e.key === "=") {
+        clickEqual();
+    } else if (e.key === "Escape") {
+        clickEsc();
+    } 
 });
 
-function clickButtonE1(key){
-    numbersEl.forEach(button =>{
-        if(button.innerText === key){
+
+
+function clickButtonE1(key) {
+    numbersEl.forEach(button => {
+        if (button.innerText === key) {
             button.click();
         }
     })
 }
 
-function clickOperation(key){
-    operationEl.forEach(button =>{
-        if(button.innerText === key){
+function clickOperation(key) {
+    operationEl.forEach(button => {
+        if (button.innerText === key) {
             button.click();
         }
     })
 }
 
-function clickEqual(){
-    equalEl.click()
+function clickEqual() {
+    equalEl.click();
+}
+
+function clickEsc() {
+    clearEl.click();
 }
