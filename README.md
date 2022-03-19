@@ -1,4 +1,4 @@
-# JavaScript-Projects
+# Vanilla JavaScript-Projects
 1. BookList App
 2. Countdown Timer
 3. Currency Converter (Incomplete)
